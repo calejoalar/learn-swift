@@ -43,3 +43,25 @@ var book = [
 ]
 
 print(book)
+
+
+print("/***** optional ****/")
+
+var optionalString : String? = "Hello"
+print(optionalString == nil)
+
+var optionalName : String? = nil
+var greeting = "Hello!"
+if let name = optionalName {
+    greeting = "Hello, \(name)"
+} else {
+    greeting = "Hi!"
+}
+print(name)
+
+
+print("/*********/")
+let myStringNumber = "123"
+let myNumber = Int(myStringNumber)
+
+print(myNumber)
