@@ -43,3 +43,27 @@ Double quotes (") can appear without being escaped.
 I still have \(apples + oranges) pieces of fruit.
 """
 print(quotation)
+
+//06- Arrays y Dictionaries
+var fruits = ["strawberries", "limes", "tangerines"]
+fruits[1] = "grapes"
+
+var occupations = [
+    "Malcolm": "Captian",
+    "Kaylee": "Mechanic"
+]
+occupations["Jayne"] = "Public Relations"
+
+fruits.append("blueberries")
+print(fruits)
+print(occupations)
+fruits = [] //limpia un array
+occupations = [:] //limpia un dictionary
+print(fruits)
+print(occupations)
+
+//Si se requiere inicializar una variable pero como vacio, se recomienda si especificar el tipo de datos
+var t_fruits : [String] = []
+var t_occupations : [String: Double] = [:]
+print(t_fruits)
+print(t_occupations)
