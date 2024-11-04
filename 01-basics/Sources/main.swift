@@ -67,3 +67,63 @@ var t_fruits : [String] = []
 var t_occupations : [String: Double] = [:]
 print(t_fruits)
 print(t_occupations)
+
+//07- Flujos de control
+
+let indidivualScores = [75,43,103,87,12]
+var teamScore = 0
+for score in indidivualScores {
+    if score > 50 {
+        teamScore += 3
+    } else {
+        teamScore += 1
+    }
+}
+print(teamScore)
+
+let scooreDecoration = if (teamScore > 10) {
+    "🎉"
+} else {
+    ""
+}
+print("Score:", teamScore, scooreDecoration)
+
+//08- Optionals
+var optionalString: String? = "Hello"
+print(optionalString == nil)
+
+var optionalName: String? = "John Applessed"
+var greeting = "Hello!"
+if let p_name = optionalName {
+    greeting = "Hello, \(p_name)"
+}
+print(greeting)
+
+//let nilValue : String = nil // <== Genera error porque "niValue" no es optional
+var nilValue : String = "Hola"
+//nilValue = nil // <== Hacer esto tambien genera error porque no permite que un "nil" sea asignado a un String, solo se puede Optional
+
+// let nickName : String ? = nil  //<=== Si o si, el signo "?" tiene que estar pegado a "String"
+
+let nickname : String? = nil
+let fullName : String = "John Applessed"
+let informalGreeting = "Hi \(nickname ?? fullName)" //este "??" hace una verificación si "nickName" es "nil" entonces toma el "fullName"
+print(informalGreeting)
+
+if let nickname {  //Abrevia la validación si es "nil" o no
+    print("Hey, \(nickname)")
+}
+
+//09- Switch
+let vegetable = "red pepper"
+switch vegetable {
+    case "celery":
+        print("Add some raisins and make ants on a log.")
+    case "cucumber", "watercress":
+        print("That would make a good tea sandwich.")
+    case let x where x.hasSuffix("pepper"):
+        print("Is it a spicy \(x)?")
+    default:
+        print("Everything tastes good in soup.") //El "default" statement es obligatorio, sino sale error
+}
+
