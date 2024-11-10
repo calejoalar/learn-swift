@@ -127,3 +127,49 @@ switch vegetable {
         print("Everything tastes good in soup.") //El "default" statement es obligatorio, sino sale error
 }
 
+//10- For-in
+let interestingNumber = [
+    "Prime": [2, 3, 5, 7, 11, 13],
+    "Fibonacci": [1, 1, 2, 3, 5, 8],
+    "Square": [1, 4, 9, 16, 25],
+]
+
+var largest = 0
+var typeLargest = ""
+for(type, numbers) in interestingNumber {
+    for number in numbers {
+        if number > largest {
+            largest = number
+            typeLargest = type
+        }
+    }
+}
+
+print(largest)
+print(typeLargest)
+
+//11- while & repeat-while
+var n=2
+while n<100 {
+    n*=2
+}
+print(n)
+
+var m=2
+repeat {
+    m*=2
+} while m<100
+print(m)
+
+//12- range of indexes
+var total1 = 0
+for i in 0..<4 { //toma en cuenta los 0,1,2,3 (no toma el 4)
+    total1 += i
+}
+print(total1)
+
+var total2 = 0;
+for i in 0...4 { //toma en cuenta los 0,1,2,3,4
+    total2 += i
+}
+print(total2)
