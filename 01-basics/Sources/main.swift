@@ -173,3 +173,57 @@ for i in 0...4 { //toma en cuenta los 0,1,2,3,4
     total2 += i
 }
 print(total2)
+
+
+//13- Functions
+func greet(person: String, day: String) -> String { // El "-> String" indica que el metodo devolvera "String"
+    return "Hello \(person), today is \(day)."
+}
+print(greet(person: "Claudio", day: "Sunday")) //Por defecto, los parametros tienen el nombre de los argumentos del metodo, se deben colocar en este caso "person" y "day"
+
+func greeting(_ person: String, on day: String) -> String { //En este caso, al poner "_" omite el tener que poner el nombre del parametro cuando se usa el metodo
+    return "Hello \(person), today is \(day)."              //En este caso, al poner una palabra antes del nombre del parametro (en este caso "on"), reemplaza a "day" al momento de llamar al metodo
+}
+print(greeting("Aaron", on: "Monday"))
+
+//14- Tuple return in functions
+func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) { //Este return se le conoce como "tuple", que es una estructura de datos que consiste en multiples partes
+    var max = scores[0]
+    var min = scores[0]
+    var sum = 0
+    for score in scores {
+        if score > max {
+            max = score 
+        } else if score < min {
+            min = score
+        }
+        sum += score
+    }
+    return (min, max, sum)
+}
+let stadistics = calculateStatistics(scores: [5,3,100,3,9])
+print(stadistics)
+print(stadistics.sum)
+print(stadistics.2)
+
+//15- Nested functions
+func returnFifteen() -> Int {
+    var y = 10
+    func add() {
+        y += 5
+    }
+    add()
+    return y 
+}
+print(returnFifteen())
+
+
+//16- Return function as function
+func makeIncrement() -> ((Int)-> Int) { //Para decir que retorne una funcion se coloca como "((Int)->Int)"
+    func addOne(number : Int) -> Int {
+        return number + 1
+    }
+    return addOne
+}
+var increment = makeIncrement() // Esto se explica como que la variable ahora pasa a ser la funcion que retorna "makeIncrement()"
+print(increment(7)) //Es por eso que permite esto
