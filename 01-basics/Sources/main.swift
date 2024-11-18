@@ -227,3 +227,32 @@ func makeIncrement() -> ((Int)-> Int) { //Para decir que retorne una funcion se 
 }
 var increment = makeIncrement() // Esto se explica como que la variable ahora pasa a ser la funcion que retorna "makeIncrement()"
 print(increment(7)) //Es por eso que permite esto
+
+//17- Function with another function as parameter
+func hasAnyMatches(list: [Int], condition: (Int)->Bool) -> Bool {
+    for item in list {
+        if condition(item) {
+            return true
+        }
+    }
+    return false
+}
+func lessThanTen(number: Int) -> Bool {
+    return number < 10
+}
+var numbers = [20,19,7,12]
+hasAnyMatches(list: numbers, condition: lessThanTen)
+
+//18- Create a function without name
+numbers.map({ (number : Int) -> Int in
+    return number * 3
+})
+
+let mappedNumbers = numbers.map({number in number * 3})
+print(mappedNumbers);
+
+//19- Create a function without parameters name
+let sortedNumbers = numbers.sorted{$0 > $1} //el $0 hace referencia al primer parametro, $1 al segundo
+print(sortedNumbers)                                //"sorted" es un metodo que espera una estructura de 2 parametros
+
+
