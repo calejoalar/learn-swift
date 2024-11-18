@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:learn-swift}/01-basics",
+            "name": "Debug 01-basics (01-basics)",
+            "program": "${workspaceFolder:learn-swift}/01-basics/.build/debug/01-basics",
+            "preLaunchTask": "swift: Build Debug 01-basics (01-basics)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:learn-swift}/01-basics",
+            "name": "Release 01-basics (01-basics)",
+            "program": "${workspaceFolder:learn-swift}/01-basics/.build/release/01-basics",
+            "preLaunchTask": "swift: Build Release 01-basics (01-basics)"
+        }
+    ]
+}

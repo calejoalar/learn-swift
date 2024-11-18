@@ -1,6 +1,7 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
 
+//All this content is based of "A Swift Tour" (https://docs.swift.org/swift-book/documentation/the-swift-programming-language/guidedtour/)
 
 // 01- Imprimir un Hola mundo
 print("Hello, world!")
@@ -255,4 +256,67 @@ print(mappedNumbers);
 let sortedNumbers = numbers.sorted{$0 > $1} //el $0 hace referencia al primer parametro, $1 al segundo
 print(sortedNumbers)                                //"sorted" es un metodo que espera una estructura de 2 parametros
 
+//20- Class
+class Shape {
+    var numberOfSides = 0
+    let numberOfVertex = 0
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) sides."
+    }
+    func simpleMessageOfVertex(vertex : Int) -> String {
+        return "A shape with \(numberOfVertex) vertex."
+    }
+}
 
+class NamedShape {
+    var numberOfSides: Int = 0
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) shapes."
+    }
+
+    /*
+        Use "deinit" to create a deinitializer if you need to perform some cleanup before the object is deallocated.
+    */
+}
+
+
+class Square : NamedShape { //asi se indica que "Square" es una clase Hija de "NamedShape"
+    var sideLength: Double
+    init(sideLength: Double, name: String) {
+        self.sideLength = sideLength
+        super.init(name: name)  //se coloca el constructor del Padre
+        numberOfSides = 4   //es un parametro de la clase Padre
+    }
+    func area() -> Double {
+        return sideLength * sideLength
+    }
+    override func simpleDescription() -> String {
+        return "A square with side of length \(sideLength)."
+    }
+}
+
+let test: Square = Square(sideLength: 5.2, name: "my test square")
+print(test.area())
+print(test.simpleDescription())
+
+
+class Circle: NamedShape {
+    var radius: Double
+    init(radius: Double, name: String) {
+        self.radius = radius
+        super.init(name: name)
+    }
+    func area() -> Double {
+        return radius * radius * 3.14159
+    }
+    override func simpleDescription() -> String {
+        return "A square with radius length \(radius)."
+    }
+}
+let test1: Circle = Circle(radius: 5.2, name: "my test circle")
+print(test1.area())
+print(test1.simpleDescription())
